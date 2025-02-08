@@ -194,8 +194,16 @@ body {
 
 /* HEAD */
 .content {
-    max-width: 600px;
+    display: flex;
+    align-items: flex-start; /* Oben ausrichten */
+    max-width: 1000px; /* Maximale Breite des Containers */
+    gap: 15%; /* Abstand zwischen Text und Bild */
     padding: 20px;
+}
+
+/* Stile für den Textbereich */
+.text {
+    flex: 1; /* Textbereich nimmt verfügbaren Platz ein */
 }
 
 /* Animation für die Überschrift */
@@ -216,7 +224,6 @@ h1 {
     color: #4CAF50;
     animation: fadeIn 1.5s ease-out;
     margin-left: 15%;
-    margin-top: 10%;
 }
 
 /* Animation für den Text */
@@ -236,4 +243,11 @@ p {
     line-height: 1.6;
     animation: slideIn 2s ease-out;
     margin-left: 15%;
+}
+
+/* Stile für das Bild */
+.image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
 }
