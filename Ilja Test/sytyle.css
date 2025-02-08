@@ -215,7 +215,7 @@ h1 {
     margin-bottom: 1rem;
     color: #4CAF50;
     animation: fadeIn 1.5s ease-out;
-    margin-left: 5%;
+    margin-left: 15%;
     margin-top: 10%;
 }
 
@@ -235,5 +235,5 @@ p {
     font-size: 1.2rem;
     line-height: 1.6;
     animation: slideIn 2s ease-out;
-    margin-left: 5%;
+    margin-left: 15%;
 }
