@@ -196,9 +196,10 @@ body {
 .content {
     display: flex;
     align-items: flex-start; /* Oben ausrichten */
-    max-width: 1000px; /* Maximale Breite des Containers */
+    max-width: 100%; /* Maximale Breite des Containers */
     gap: 15%; /* Abstand zwischen Text und Bild */
     padding: 20px;
+    margin-top: 5%;
 }
 
 /* Stile für den Textbereich */
@@ -243,11 +244,13 @@ p {
     line-height: 1.6;
     animation: slideIn 2s ease-out;
     margin-left: 15%;
+    width: 500px;
 }
 
 /* Stile für das Bild */
 .image img {
-    max-width: 300px;
+    max-width: 500px;
     height: auto;
     border-radius: 15px;
+    margin-right: 100px;
 }
