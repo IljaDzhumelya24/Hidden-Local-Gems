@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const words = ["Stockholm", "Amsterdam", "Berlin", "Paris", "London"];
+    const words = ["Stockholm", "Amsterdam", "Berlin", "Paris", "London", "Prag"];
     let currentWordIndex = 0;
     const span = document.querySelector('.typing-animation');
 
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         currentWordIndex = (currentWordIndex + 1) % words.length; // Nächsten Index
     }
 
-    setInterval(changeWord, 5000); // Alle 5 Sekunden
+    setInterval(changeWord, 3000); // Alle 5 Sekunden
     changeWord(); // Initialer Wortwechsel
 });
+
