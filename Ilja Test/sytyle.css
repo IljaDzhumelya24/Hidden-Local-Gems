@@ -199,12 +199,13 @@ body {
     max-width: 100%; /* Maximale Breite des Containers */
     gap: 15%; /* Abstand zwischen Text und Bild */
     padding: 20px;
-    margin-top: 5%;
+
 }
 
 /* Stile für den Textbereich */
 .text {
     flex: 1; /* Textbereich nimmt verfügbaren Platz ein */
+    margin-top: 10%;
 }
 
 /* Animation für die Überschrift */
@@ -247,10 +248,29 @@ p {
     width: 500px;
 }
 
+.custom-button {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    animation: slideIn 2s ease-out;
+    margin-left: 15%;
+}
+
+.custom-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #218838, #28a745);
+    box-shadow: 0px 8px 16px rgba(40, 167, 69, 0.6);
+  }
+
 /* Stile für das Bild */
 .image img {
-    max-width: 500px;
+    max-width: 700px;
     height: auto;
     border-radius: 15px;
-    margin-right: 100px;
+    margin-right: 200px;
 }
