@@ -18,59 +18,115 @@ document.addEventListener("DOMContentLoaded", function() {
     changeWord(); // Initialer Wortwechsel
 });
 
-function initMap() {
-    const map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 52.5200, lng: 13.4050 }, // Beispielkoordinaten (Berlin)
-      zoom: 12,
+let activeInfoWindow = null;
+
+function createMarker(position, title, imageUrl, description, mapsUrl, map) {
+    const marker = new google.maps.Marker({
+        position,
+        map,
+        title,
     });
-  
-    const markers = [
-      {
-        position: { lat: 52.5200, lng: 13.4050 },
-        title: "Delmenhorst",
-        imageUrl: "beach-landscape.jpg", // Bild des Ortes
-        description: "Ein cooler, versteckter Ort in der Stadt, ideal für entspannte Stunden oder ein gemütliches Picknick.",
-        googleMapsLink: "https://www.google.com/maps?q=52.5200,13.4050"
-      },
-      {
-        position: { lat: 52.5300, lng: 13.3750 },
-        title: "Geheimer Ort 2",
-        imageUrl: "geheimer-ort-2.jpg", // Bild des Ortes
-        description: "Ein ruhiger Ort, perfekt zum Entspannen und die Aussicht zu genießen.",
-        googleMapsLink: "https://www.google.com/maps?q=52.5300,13.3750"
-      }
-      // Weitere Marker...
-    ];
-  
-    markers.forEach(markerData => {
-      const marker = new google.maps.Marker({
-        position: markerData.position,
-        map: map,
-        title: markerData.title,
-      });
-  
-      const infoWindowContent = `
-        <div class="info-window-content">
-          <img src="${markerData.imageUrl}" alt="Bild des Ortes">
-          <div class="place-name">${markerData.title}</div>
-          <p>${markerData.description}</p>
-          <button onclick="window.open('${markerData.googleMapsLink}', '_blank')">In Google Maps ansehen</button>
+
+    const infoWindowContent = document.createElement("div");
+    infoWindowContent.innerHTML = `
+        <div id="info-${title.replace(/\s/g, '')}" style="
+            max-width: 250px; 
+            text-align: center; 
+            padding: 10px; 
+            border-radius: 8px; 
+            background: white; 
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        ">
+            <h3 style="margin: 5px 0;">${title}</h3>
+            <img src="${imageUrl}" alt="${title}" style="width: 100%; border-radius: 8px;">
+            <p style="font-size: 14px; color: #333;">${description}</p>
+            <a href="${mapsUrl}" target="_blank" style="
+                display: inline-block; 
+                margin-top: 5px; 
+                padding: 6px 12px; 
+                background-color: #007BFF; 
+                color: white; 
+                text-decoration: none; 
+                border-radius: 5px;
+                font-size: 14px;
+            ">📍 Auf Google Maps</a>
         </div>
-      `;
-  
-      const infoWindow = new google.maps.InfoWindow({
-        content: infoWindowContent
-      });
-  
-      // Marker-Hover-Effekt
-      marker.addListener('mouseover', function() {
-        infoWindow.open(map, marker); // InfoWindow wird beim Hovern geöffnet
-      });
-  
-      // InfoWindow bleibt sichtbar, auch wenn der Benutzer die Markierung verlässt
-      marker.addListener('mouseout', function() {
-        // Die InfoBox bleibt sichtbar, bis der Benutzer den Marker komplett verlässt
-      });
+    `;
+
+    const infoWindow = new google.maps.InfoWindow({
+        content: infoWindowContent,
     });
-  }
-  
+
+    let timeout;
+
+    // Funktion zum Schließen der InfoBox, wenn Maus weg ist
+    function closeInfoWindow() {
+        timeout = setTimeout(() => {
+            if (activeInfoWindow === infoWindow) {
+                infoWindow.close();
+                activeInfoWindow = null;
+            }
+        }, 500); // Verzögerung für sanftes Verschwinden
+    }
+
+    // Mouseover auf Marker: Zeigt InfoWindow
+    marker.addListener("mouseover", () => {
+        if (activeInfoWindow) {
+            activeInfoWindow.close();
+        }
+        infoWindow.open(map, marker);
+        activeInfoWindow = infoWindow;
+
+        // Falls Timeout läuft, abbrechen
+        if (timeout) clearTimeout(timeout);
+    });
+
+    // Wenn Maus das InfoWindow verlässt → Timeout setzen
+    google.maps.event.addListener(infoWindow, "domready", () => {
+        const infoDiv = document.getElementById(`info-${title.replace(/\s/g, '')}`);
+
+        infoDiv.addEventListener("mouseenter", () => {
+            if (timeout) clearTimeout(timeout); // Timeout abbrechen, wenn Maus drüber ist
+        });
+
+        infoDiv.addEventListener("mouseleave", closeInfoWindow);
+    });
+
+    // Maus verlässt den Marker → InfoWindow wird erst später geschlossen
+    marker.addListener("mouseout", closeInfoWindow);
+}
+
+// Initiiert die Karte mit Markern
+function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 52.5200, lng: 13.4050 }, // Berlin
+        zoom: 12,
+    });
+
+    createMarker(
+        { lat: 52.5163, lng: 13.3777 },
+        "Brandenburger Tor",
+        "Brandenburger Tor mehr Himmel.jpg",
+        "Eines der bekanntesten Wahrzeichen Berlins.",
+        "https://www.google.com/maps?q=Brandenburger+Tor",
+        map
+    );
+
+    createMarker(
+        { lat: 52.5076, lng: 13.3904 },
+        "Nikolaiviertel",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Nikolaiviertel_Berlin.jpg/800px-Nikolaiviertel_Berlin.jpg",
+        "Ein historisches Viertel mit vielen gemütlichen Cafés und Shops.",
+        "https://www.google.com/maps?q=Nikolaiviertel",
+        map
+    );
+
+    createMarker(
+        { lat: 52.4994, lng: 13.4034 },
+        "Bergmannkiez",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Bergmannstr._Berlin.jpg/800px-Bergmannstr._Berlin.jpg",
+        "Ein angesagtes Viertel mit tollen Restaurants und Bars.",
+        "https://www.google.com/maps?q=Bergmannkiez",
+        map
+    );
+}
