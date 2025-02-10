@@ -76,37 +76,12 @@
 
 
 
-    <section class="top-geheimtipps">
-        <h2 class="section-title">Top Geheimtipps</h2>
-        <div class="tipps-container">
-            <div class="tipp-card">
-                <img src="steaming-cup-coffee-saucer-with-coffee-beans-scattered-around.jpg" alt="Geheimer Ort 1">
-                <div class="tipp-info">
-                    <h3>Verstecktes Café</h3>
-                    <p>Ein gemütliches Café mitten im Grünen, perfekt für ruhige Nachmittage.</p>
-                    <span class="rating">⭐️⭐️⭐️⭐️⭐️</span>
-                </div>
-            </div>
-            
-            <div class="tipp-card">
-                <img src="woman-sitting-bench-end-enjoying-view-huge-italian-dolomites-mountains.jpg" alt="Geheimer Ort 2">
-                <div class="tipp-info">
-                    <h3>Geheimer Aussichtspunkt</h3>
-                    <p>Ein atemberaubender Blick auf die Stadt ohne Touristenmassen.</p>
-                    <span class="rating">⭐️⭐️⭐️⭐️⭐️</span>
-                </div>
-            </div>
-            
-            <div class="tipp-card">
-                <img src="beach-landscape.jpg" alt="Geheimer Ort 3">
-                <div class="tipp-info">
-                    <h3>Versteckter Strand</h3>
-                    <p>Ein einsamer Sandstrand mit kristallklarem Wasser und Palmen.</p>
-                    <span class="rating">⭐️⭐️⭐️⭐️⭐️</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="secret-tips-map">
+        <h2>Entdecke geheime Orte in deiner Nähe</h2>
+        <p>Fahre mit der Maus über die Markierungen, um mehr zu erfahren und zu entdecken!</p>
+        
+        <div id="map" class="map-container"></div>
+      </section>
     
     
 
@@ -175,5 +150,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvBeC04AYSigHnBnCfavbD4IGCeplyiqQ&callback=initMap"></script>
 
 </html>

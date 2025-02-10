@@ -411,67 +411,73 @@ body {
 }
 
 /* SECTION2 */
-.top-geheimtipps {
+.secret-tips-map {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
     text-align: center;
-    padding: 60px 20px;
-    background: #f8f9fa;
-}
-
-.section-title {
+  }
+  
+  .secret-tips-map h2 {
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  .secret-tips-map p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .map-container {
+    width: 80%;  /* Karte nimmt nur 80% der Breite */
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* InfoBox-Styling */
+  .info-window-content {
+    width: 300px; /* Feste Breite für die InfoBox */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .info-window-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .place-name {
+    font-size: 1.5rem;
     font-weight: bold;
     color: #333;
-}
-
-.tipps-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.tipp-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    width: 300px;
-}
-
-.tipp-card:hover {
-    transform: scale(1.05);
-}
-
-.tipp-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.tipp-info {
-    padding: 20px;
-}
-
-.tipp-info h3 {
-    font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #222;
-}
-
-.tipp-info p {
+  }
+  
+  .info-window-content p {
     color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .info-window-content button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-.rating {
-    font-size: 1.2rem;
-    color: #f4c542;
-}
-
-
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  .info-window-content button:hover {
+    background-color: #e85d4f;
+  }
+  
 
 
 /* FOOTER */
