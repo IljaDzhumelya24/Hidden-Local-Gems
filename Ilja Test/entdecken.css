@@ -15,6 +15,8 @@ body {
     background-color: transparent;
     border-radius: 15px;
     margin: 20px;
+    z-index: 1000;
+    position: relative;
 }
 
 .logo a {
@@ -191,75 +193,245 @@ body {
     transform: translateY(-3px);
 }
 
+
+
+
+
+
+
+
+
+
 /* Header */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .discover-header {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(to right, #4f8f4f, #3b6b3b);
+    background: linear-gradient(135deg, #1c7c54, #0f5132);
     color: white;
-    border-radius: 0 0 50px 50px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .discover-header h1 {
-    font-size: 36px;
+    font-size: 3rem;
     margin-bottom: 10px;
-    font-family: 'Outfit', serif;
 }
 
-/* Städte-Grid */
+.discover-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Grid Layout */
 .city-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    padding: 40px;
-    max-width: 1200px;
-    margin: auto;
+    padding: 50px 10%;
+}
+
+/* Karten */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .city-card {
-    background: #e0f2e0;
+    background: white;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-    border: 2px solid #3b6b3b;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 1s ease-in-out forwards;
 }
+
+.city-card:nth-child(1) { animation-delay: 0.3s; }
+.city-card:nth-child(2) { animation-delay: 0.5s; }
+.city-card:nth-child(3) { animation-delay: 0.7s; }
+.city-card:nth-child(4) { animation-delay: 0.9s; }
+.city-card:nth-child(5) { animation-delay: 1.1s; }
+.city-card:nth-child(6) { animation-delay: 1.3s; }
+.city-card:nth-child(7) { animation-delay: 1.5s; }
+.city-card:nth-child(8) { animation-delay: 1.7s; }
+.city-card:nth-child(9) { animation-delay: 1.9s; }
+.city-card:nth-child(10) { animation-delay: 2.1s; }
+.city-card:nth-child(11) { animation-delay: 2.3s; }
+.city-card:nth-child(12) { animation-delay: 2.5s; }
 
 .city-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Bilder */
 .city-card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
+/* Text in den Karten */
 .city-card h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #1c7c54;
     margin: 15px 0;
-    font-size: 22px;
-    color: #2f4f2f;
 }
 
 .city-card p {
+    text-align: center;
     padding: 0 15px;
-    color: #3b6b3b;
+    font-size: 1rem;
+    color: #555;
 }
 
+/* Button */
 .discover-btn {
-    display: inline-block;
-    margin: 15px 0;
-    padding: 10px 20px;
-    background: #3b6b3b;
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    padding: 12px 0;
+    text-align: center;
+    background: #1c7c54;
     color: white;
+    font-size: 1rem;
+    font-weight: bold;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.2s;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
 }
 
 .discover-btn:hover {
-    background: #4f8f4f;
-    transform: scale(1.1);
+    background: #14543b;
+}
+
+
+.footer {
+    background: black;
+    color: white;
+    padding: 50px 0;
+    position: relative;
+    box-shadow: 0 -4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 280px;
+    margin: 20px;
+    text-align: center;
+}
+
+.footer-section h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 2px solid green;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    color: #bbb;
+    max-width: 350px;
+    line-height: 1.6;
+    margin: auto;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-section ul li a:hover {
+    color: green;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: green;
+}
+
+.newsletter {
+    margin-top: 20px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 70%;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    border: none;
+    background: green;
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background 0.3s;
+}
+
+.newsletter button:hover {
+    background: rgba(42, 253, 0, 0.533);
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #bbb;
+    text-align: center;
 }

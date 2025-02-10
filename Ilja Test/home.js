@@ -106,7 +106,7 @@ function initMap() {
     createMarker(
         { lat: 52.5163, lng: 13.3777 },
         "Brandenburger Tor",
-        "Brandenburger Tor mehr Himmel.jpg",
+        "Bilder/Brandenburger Tor mehr Himmel.jpg",
         "Eines der bekanntesten Wahrzeichen Berlins.",
         "https://www.google.com/maps?q=Brandenburger+Tor",
         map
@@ -115,7 +115,7 @@ function initMap() {
     createMarker(
         { lat: 52.5076, lng: 13.3904 },
         "Nikolaiviertel",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Nikolaiviertel_Berlin.jpg/800px-Nikolaiviertel_Berlin.jpg",
+        "Bilder/View_Berlin_TV_Tower_Jan2015_img4.jpg",
         "Ein historisches Viertel mit vielen gemütlichen Cafés und Shops.",
         "https://www.google.com/maps?q=Nikolaiviertel",
         map
@@ -124,7 +124,7 @@ function initMap() {
     createMarker(
         { lat: 52.4994, lng: 13.4034 },
         "Bergmannkiez",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Bergmannstr._Berlin.jpg/800px-Bergmannstr._Berlin.jpg",
+        "Bilder/Berlin_-_Balkone_im_Bergmannkiez_(2014).jpg",
         "Ein angesagtes Viertel mit tollen Restaurants und Bars.",
         "https://www.google.com/maps?q=Bergmannkiez",
         map
