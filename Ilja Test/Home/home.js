@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const words = ["Stockholm", "Amsterdam", "Berlin", "Paris", "London", "Prag"];
+    const words = ["Stockholm?", "Amsterdam?", "Berlin?", "Paris?", "London?", "Prag?"];
     let currentWordIndex = 0;
     const span = document.querySelector('.typing-animation');
 
@@ -106,7 +106,7 @@ function initMap() {
     createMarker(
         { lat: 52.5163, lng: 13.3777 },
         "Brandenburger Tor",
-        "Bilder/Brandenburger Tor mehr Himmel.jpg",
+        "Bilder Home/Brandenburger Tor mehr Himmel.jpg",
         "Eines der bekanntesten Wahrzeichen Berlins.",
         "https://www.google.com/maps?q=Brandenburger+Tor",
         map
@@ -115,7 +115,7 @@ function initMap() {
     createMarker(
         { lat: 52.5076, lng: 13.3904 },
         "Nikolaiviertel",
-        "Bilder/View_Berlin_TV_Tower_Jan2015_img4.jpg",
+        "Bilder Home/View_Berlin_TV_Tower_Jan2015_img4.jpg",
         "Ein historisches Viertel mit vielen gemütlichen Cafés und Shops.",
         "https://www.google.com/maps?q=Nikolaiviertel",
         map
@@ -124,7 +124,7 @@ function initMap() {
     createMarker(
         { lat: 52.4994, lng: 13.4034 },
         "Bergmannkiez",
-        "Bilder/Berlin_-_Balkone_im_Bergmannkiez_(2014).jpg",
+        "Bilder Home/Berlin_-_Balkone_im_Bergmannkiez_(2014).jpg",
         "Ein angesagtes Viertel mit tollen Restaurants und Bars.",
         "https://www.google.com/maps?q=Bergmannkiez",
         map

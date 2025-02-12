@@ -6,6 +6,7 @@ body {
     background-color: #ffffff;
 }
 
+
 /* NAVBAR */
 .navbar {
     display: flex;
@@ -137,7 +138,6 @@ body {
     display: block;
 }
 
-/* Buttons auf der rechten Seite */
 .auth-buttons {
     display: flex;
     gap: 10px;
@@ -194,14 +194,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
 /* Header */
 @keyframes fadeIn {
     from {
@@ -232,7 +224,8 @@ body {
     opacity: 0.9;
 }
 
-/* Grid Layout */
+
+/* Sectin 1 */
 .city-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -305,7 +298,6 @@ body {
     color: #555;
 }
 
-/* Button */
 .discover-btn {
     display: block;
     width: 80%;
@@ -326,6 +318,7 @@ body {
 }
 
 
+/* FOOTER */
 .footer {
     background: black;
     color: white;

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Local Gems</title>
+    <link rel="stylesheet" href="routen.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/Ilja Test/Home/home.html">Hidden Local Gems</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/Ilja Test/Entdecken/entdecken.html">Entdecken</a></li>
+            <li><a href="/Ilja Test/Routen/routen.html">Routen</a></li>
+            <li class="dropdown">
+                <a href="#">Kategorie</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Essen</a></li>
+                    <li><a href="#">Shoppen</a></li>
+                    <li><a href="#">Parken</a></li>
+                    <li><a href="#">Natur</a></li>
+                    <li><a href="#">Denkmale</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Über uns</a></li>
+            <li><a href="#">Kommunity</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="login-btn">Login</button>
+            <button class="signup-btn">Sign Up</button>
+        </div>
+    </nav>
+
+
+    <!-- Header -->
+    <header class="route-header">
+        <h1>Die schönsten Routen in Berlin</h1>
+        <p>Erkunde Berlin mit unseren handverlesenen Routen zu den besten versteckten Orten.</p>
+    </header>
+
+
+    <!-- Section 1 -->
+    <section class="map-section">
+        <div id="map"></div>
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="routes-list">
+        <h2>Empfohlene Routen</h2>
+        <div class="route">
+            <img src="bilder/brandenburger-tor.jpg" alt="Route 1">
+            <div class="route-info">
+                <h3>Geheime Berliner Spots</h3>
+                <p>Diese Route führt dich zu versteckten Orten, die selbst viele Berliner nicht kennen.</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Brandenburger+Tor" target="_blank" class="route-btn">Route starten</a>
+            </div>
+        </div>
+        <div class="route">
+            <img src="bilder/kreuzberg.jpg" alt="Route 2">
+            <div class="route-info">
+                <h3>Kulinarische Geheimtipps</h3>
+                <p>Eine kulinarische Tour durch Berlin mit Stopps in einzigartigen Restaurants.</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Kreuzberg" target="_blank" class="route-btn">Route starten</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Über uns</h2>
+                <p>Wir sind ein kreatives Unternehmen, das innovative digitale Lösungen entwickelt, um deine Ideen in die Realität umzusetzen.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Nützliche Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Entdecken</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Folge uns</h2>
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+                    <a href="#"><i class='bx bxl-discord-alt'></i></a>
+                </div>
+            </div>
+            <div class="footer-section newsletter">
+                <h2>Newsletter</h2>
+                <p>Erhalte aktuelle Neuigkeiten direkt in dein Postfach.</p>
+                <input type="email" placeholder="Deine E-Mail">
+                <button>Abonnieren</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dein Unternehmen. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    
+    <!-- Script -->
+    <script src="routen.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvBeC04AYSigHnBnCfavbD4IGCeplyiqQ&callback=initMap"></script>
+
+
+</body>
+</html>

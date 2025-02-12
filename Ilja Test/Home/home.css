@@ -6,6 +6,7 @@ body {
     background-color: #ffffff;
 }
 
+
 /* NAVBAR */
 .navbar {
     display: flex;
@@ -135,7 +136,6 @@ body {
     display: block;
 }
 
-/* Buttons auf der rechten Seite */
 .auth-buttons {
     display: flex;
     gap: 10px;
@@ -192,10 +192,7 @@ body {
 }
 
 
-
-
 /* HEAD */
-/* Header-Stil */
 .head {
     display: flex;
     justify-content: space-between;
@@ -278,8 +275,8 @@ body {
 }
 
 .image:hover {
-    transform: scale(1.1); /* Bild wird beim Hover vergrößert */
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3); /* Schatteneffekt beim Hover */
+    transform: scale(1.1);
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .image img {
@@ -290,15 +287,11 @@ body {
 }
 
 .image:hover img {
-    transform: scale(1.05); /* Bild zoomt leicht beim Hover */
+    transform: scale(1.05); 
 }
 
 
-
-
-
 /* Section 1 */
-/* Section Container */
 .why-section {
     text-align: center;
     padding: 80px 10%;
@@ -318,7 +311,6 @@ body {
     padding-bottom: 10px;
 }
 
-/* Stylischer Unterstrich unter der Überschrift */
 .why-section h2::after {
     content: "";
     display: block;
@@ -328,7 +320,6 @@ body {
     margin: 10px auto;
 }
 
-/* Flexbox für Bild und Text */
 .section-content {
     display: flex;
     justify-content: center;
@@ -337,17 +328,15 @@ body {
     text-align: left;
 }
 
-/* Textbereich */
 .text {
     max-width: 50%;
-    color: #1a1a1a; /* Dunklere Farbe für besseren Kontrast */
-    font-size: 1.3rem; /* Etwas größer */
+    color: #1a1a1a;
+    font-size: 1.3rem;
     line-height: 1.8;
     font-weight: 500;
     animation: fadeInUp 1s ease-out;
 }
 
-/* Hervorgehobenes Zitat */
 .highlight {
     font-size: 1.6rem;
     font-weight: bold;
@@ -356,15 +345,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* Allgemeiner Absatz-Text */
 .text p {
     margin-bottom: 20px;
-    color: #2c2c2c; /* Noch dunkler für besseren Kontrast */
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); /* Leichter Schatten für Tiefe */
+    color: #2c2c2c; 
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); 
 }
 
-
-/* Animierter Button */
 .custom-button {
     background: linear-gradient(90deg, #27ae60, #2ecc71);
     color: white;
@@ -378,27 +364,23 @@ body {
     box-shadow: 0px 4px 10px rgba(39, 174, 96, 0.3);
 }
 
-/* Hover Effekt */
 .custom-button:hover {
     transform: translateY(-3px);
     background: linear-gradient(90deg, #2ecc71, #27ae60);
     box-shadow: 0px 6px 20px rgba(39, 174, 96, 0.5);
 }
 
-/* Bildbereich */
 .image {
     max-width: 40%;
     position: relative;
     transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
-/* Hover-Effekt fürs Bild */
 .image:hover {
     transform: scale(1.05);
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Sanfte Animation beim Erscheinen */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -410,6 +392,7 @@ body {
     }
 }
 
+
 /* SECTION2 */
 .secret-tips-map {
     background-color: #f9f9f9;
@@ -417,52 +400,51 @@ body {
     text-align: center;
   }
   
-  .secret-tips-map h2 {
+.secret-tips-map h2 {
     font-size: 2.5rem;
     color: #333;
-  }
+}
   
-  .secret-tips-map p {
+.secret-tips-map p {
     font-size: 1.2rem;
     color: #666;
     margin-bottom: 20px;
-  }
+}
   
-  .map-container {
-    width: 80%;  /* Karte nimmt nur 80% der Breite */
+.map-container {
+    width: 80%;
     height: 500px;
     margin: 0 auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  /* InfoBox-Styling */
-  .info-window-content {
-    width: 300px; /* Feste Breite für die InfoBox */
+.info-window-content {
+    width: 300px;
     font-family: 'Arial', sans-serif;
-  }
+}
   
-  .info-window-content img {
+.info-window-content img {
     width: 100%;
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
-  }
+}
   
-  .place-name {
+.place-name {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
-  }
+}
   
-  .info-window-content p {
+.info-window-content p {
     color: #555;
     line-height: 1.5;
     margin-bottom: 15px;
-  }
+}
   
-  .info-window-content button {
+.info-window-content button {
     background-color: #ff6f61;
     color: white;
     padding: 12px 20px;
@@ -472,13 +454,12 @@ body {
     font-size: 1rem;
     width: 100%;
     transition: background-color 0.3s;
-  }
+}
   
-  .info-window-content button:hover {
+.info-window-content button:hover {
     background-color: #e85d4f;
-  }
+}
   
-
 
 /* FOOTER */
 .footer {
