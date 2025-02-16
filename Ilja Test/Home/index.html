@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hidden Local Gems</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="index.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -13,7 +16,7 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
-            <a href="home.html">Hidden Local Gems</a>
+            <a href="index.html">Hidden Local Gems</a>
         </div>
         <ul class="nav-links">
             <li><a href="/Ilja Test/Entdecken/entdecken.html">Entdecken</a></li>
@@ -30,6 +33,7 @@
             </li>
             <li><a href="#">Über uns</a></li>
             <li><a href="#">Kommunity</a></li>
+            <li><a href="#">Preise</a></li>
         </ul>
         <div class="auth-buttons">
             <button class="login-btn">Login</button>
@@ -44,13 +48,68 @@
             <div class="text">
                 <h1>Wohin will ich als nächstes ? <h1>Eventuell <span class="typing-animation">Stockholm?</span></h1></h1>
                 <p>Entdecke versteckte lokale Schätze und einzigartige Erlebnisse in deiner Nähe. Tauche ein in die Schönheit unbekannter Orte und lass dich überraschen! Finden Sie alles, was Sie damals mühselig gesucht haben.</p>
-                <button class="custom-button">Entdecken</button>
+                <a href="/Ilja Test/Entdecken/entdecken.html">
+                    <button class="custom-button">Entdecken</button>
+                </a>
             </div>
             <div class="image">
                 <img src="Bilder Home/nature-screen-concept-illustration.png" alt="Hidden Local Gem Bild">
             </div>
         </div>
     </header>
+
+
+
+
+    <section class="local-gems-section">
+        <div class="container">
+          <h2>Die Bedeutung lokaler Schätze</h2>
+          <div class="gems-container">
+            <div class="gem-item">
+              <div class="icon-box">
+                <i class="fas fa-coins"></i>
+              </div>
+              <div class="text-box">
+                <h3>Förderung der Wirtschaft</h3>
+                <p>Lokale Schätze unterstützen die Wirtschaft vor Ort und schaffen Arbeitsplätze.</p>
+              </div>
+            </div>
+      
+            <div class="gem-item">
+              <div class="icon-box">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="text-box">
+                <h3>Verbindung zur Gemeinschaft</h3>
+                <p>Individuelle, kreative Produkte stärken das Gemeinschaftsgefühl und fördern lokale Bindungen.</p>
+              </div>
+            </div>
+      
+            <div class="gem-item">
+              <div class="icon-box">
+                <i class="fas fa-tree"></i>
+              </div>
+              <div class="text-box">
+                <h3>Nachhaltigkeit</h3>
+                <p>Lokale Schätze kommen oft mit einer umweltbewussteren Produktion und reduzierter CO2-Bilanz.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+    
+
+
     
 
     <!-- Section 1 -->
@@ -69,7 +128,9 @@
                 <p>
                     Tauche ein in eine Welt abseits der Touristenmassen und erlebe dein nächstes Abenteuer.
                 </p>
-                <button class="custom-button">Mehr entdecken</button>
+                <a href="/Ilja Test/Routen/routen.html">
+                    <button class="custom-button">Mehr entdecken</button> 
+                </a>
             </div>
         </div>
     </section>
@@ -77,7 +138,7 @@
 
     <!-- Section 2 -->
     <section class="secret-tips-map">
-        <h2>Entdecke geheime Orte in deiner Nähe</h2>
+        <h2>Ein Beispiel für geheime Orte in deiner Nähe</h2>
         <p>Fahre mit der Maus über die Markierungen, um mehr zu erfahren und zu entdecken!</p>
         <div id="map" class="map-container"></div>
     </section>
@@ -88,12 +149,12 @@
         <div class="footer-container">
             <div class="footer-section about">
                 <h2>Über uns</h2>
-                <p>Wir sind ein kreatives Unternehmen, das innovative digitale Lösungen entwickelt, um deine Ideen in die Realität umzusetzen.</p>
+                <p>Wir sind ein kreatives Team, das innovative Lösungen bietet, um das Leben unserer Kunden zu verbessern. Mit Fokus auf Qualität und Nachhaltigkeit streben wir danach, positive Veränderungen zu schaffen.</p>
             </div>
             <div class="footer-section links">
                 <h2>Nützliche Links</h2>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Über uns</a></li>
                     <li><a href="#">Entdecken</a></li>
@@ -122,7 +183,7 @@
 
 
     <!-- Script -->
-    <script src="home.js"></script>
+    <script src="index.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvBeC04AYSigHnBnCfavbD4IGCeplyiqQ&callback=initMap"></script>
 
 
