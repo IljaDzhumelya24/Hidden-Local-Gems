@@ -1,22 +1,38 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const words = ["Stockholm?", "Amsterdam?", "Berlin?", "Paris?", "London?", "Prag?"];
+    const words = ["Stockholm ?", "Amsterdam ?", "Berlin ?", "Paris ?", "London ?", "Prag ?"];
     let currentWordIndex = 0;
     const span = document.querySelector('.typing-animation');
-
-    function changeWord() {
-        span.style.width = '0';  // Anfang des Wortes auf 0 setzen
-
-        setTimeout(() => {
-            span.textContent = words[currentWordIndex];  // Wort ändern
-            span.style.width = `${span.scrollWidth}px`;  // Setze die Breite auf die Breite des Textes
-        }, 500);  // Verzögerung, damit der alte Text verschwinden kann
-
-        currentWordIndex = (currentWordIndex + 1) % words.length; // Nächsten Index
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 150; // Geschwindigkeit in Millisekunden
+  
+    function type() {
+      const currentWord = words[currentWordIndex];
+  
+      if (!isDeleting) {
+        span.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentWord.length) {
+          setTimeout(() => { 
+            isDeleting = true;
+            type();
+          }, 1500); // Pause am Ende des Wortes
+          return;
+        }
+      } else {
+        span.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          currentWordIndex = (currentWordIndex + 1) % words.length;
+        }
+      }
+      setTimeout(type, typingSpeed);
     }
-
-    setInterval(changeWord, 3000); // Alle 5 Sekunden
-    changeWord(); // Initialer Wortwechsel
-});
+    type();
+  });
+  
+  
 
 let activeInfoWindow = null;
 
