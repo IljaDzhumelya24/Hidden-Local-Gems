@@ -10,6 +10,21 @@ body {
     background-color: #ffffff;
 }
 
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #27ae60; /* Deine grüne Farbe */
+  border-radius: 10px;
+  border: 3px solid #f8f9fa; /* Damit der Thumb gut abgesetzt ist */
+}
+
 
 /* NAVBAR */
 .navbar {
@@ -23,14 +38,38 @@ body {
 }
 
 .logo a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    display: inline-block;
-    animation: pulse 2s infinite ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
 }
+
+.logo-img {
+  width: 80px;
+  transition: transform 0.3s ease;
+}
+
+.logo-text {
+  font-size: 30px;
+  font-family: 'Outfit', sans-serif;
+  color: #4CAF50;
+  margin-left: 8px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.logo a:hover .logo-img {
+  transform: translateX(-10px);
+}
+
+.logo a:hover .logo-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 .nav-links {
     list-style: none;
@@ -127,7 +166,7 @@ body {
     display: block;
     color: #333;
     transition: all 0.3s ease;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .dropdown-menu li a:hover {
@@ -143,7 +182,7 @@ body {
 .auth-buttons {
     display: flex;
     align-items: center;
-    gap: 10px; /* Abstand zwischen den Buttons */
+    gap: 10px; 
 }
 
 .login-btn {
@@ -389,7 +428,7 @@ body {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 30px;
 }
 
@@ -438,12 +477,31 @@ body {
     }
 }
 
+@media (max-width: 1024px) {
+    .gems-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1280px) { 
+    .gem-item {
+        flex: 0 0 220px; /* Karten werden schmaler */
+    }
+    .flip-card {
+        height: 260px; /* Reduziert Höhe für kleine Bildschirme */
+    }
+}
+
+
 
 /* Section 1 */
+
 .why-section {
     text-align: center;
     padding: 80px 10%;
     background-color: #f8f9fa;
+    align-items: center;
 }
 
 .why-section h2 {
@@ -473,7 +531,10 @@ body {
     align-items: center;
     gap: 50px;
     text-align: left;
+    max-width: 1200px; /* Maximale Breite des Containers */
+    margin: 0 auto;    /* Zentriert den Container horizontal */
 }
+
 
 .text {
     max-width: 50%;
@@ -584,7 +645,7 @@ body {
   
 .info-window-content {
     width: 300px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Outfit', sans-serif;
 }
   
 .info-window-content img {
