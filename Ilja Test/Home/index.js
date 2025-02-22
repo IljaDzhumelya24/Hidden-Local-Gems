@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const words = ["Stockholm ?", "Amsterdam ?", "Berlin ?", "Paris ?", "London ?", "Prag ?"];
+    const words = ["Stockholm ?", "Amsterdam ?", "Berlin ?", "Paris ?", "London ?", "Rom ?"];
     let currentWordIndex = 0;
     const span = document.querySelector('.typing-animation');
     let charIndex = 0;
