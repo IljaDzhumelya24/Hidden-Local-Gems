@@ -565,24 +565,27 @@ body {
     }
     
     .cards-container {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-    }
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;  /* Abstand zwischen den Karten */
+      }
     
-    .flip-card {
-      width: 250px;
-      height: 350px;
-    }
+      .flip-card {
+        width: 100%; /* passt sich der Grid-Spalte an */
+        aspect-ratio: 3 / 4;
+      }
     
     /* Aktive Karte im kleineren Zustand – nicht zu dominant */
     .flip-card.active {
-      width: 1000px;
-      height: 600px;
+      width: 1200px;
+      height: 650px;
     }
     
     .card-caption h3 {
-      font-size: 2.5rem;
-    }
+        font-size: 1.8rem; /* etwas kleiner als zuvor */
+        font-weight: bold;
+        margin: 0;
+      }
     
     .city-info h3 {
       font-size: 3.5rem;
