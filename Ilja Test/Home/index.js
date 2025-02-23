@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const span = document.querySelector('.typing-animation');
     let charIndex = 0;
     let isDeleting = false;
-    const typingSpeed = 150; // Geschwindigkeit in Millisekunden
+    const typingSpeed = 150;
   
     function type() {
       const currentWord = words[currentWordIndex];
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
           setTimeout(() => { 
             isDeleting = true;
             type();
-          }, 1500); // Pause am Ende des Wortes
+          }, 1500); 
           return;
         }
       } else {
@@ -37,98 +37,78 @@ document.addEventListener("DOMContentLoaded", function() {
 let activeInfoWindow = null;
 
 function createMarker(position, title, imageUrl, description, mapsUrl, map) {
-    // Benutzerdefiniertes Marker-Icon mit eigenem Bild
-    const markerIcon = {
-        url: "Bilder Home/ort.png", // Dein eigenes Bild hier
-        scaledSize: new google.maps.Size(40, 40), // Skaliert das Bild auf die gewünschte Größe
-        origin: new google.maps.Point(0, 0), // Ursprungsposition des Icons
-        anchor: new google.maps.Point(20, 20) // Position des Markers im Bild (hier im Zentrum)
-    };
+  const markerIcon = {
+    url: "Bilder Home/ort.png", 
+    scaledSize: new google.maps.Size(40, 40),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(20, 20)
+  };
 
-    const marker = new google.maps.Marker({
-        position,
-        map,
-        title,
-        icon: markerIcon, // Das benutzerdefinierte Symbol
-    });
+  const marker = new google.maps.Marker({
+    position,
+    map,
+    title,
+    icon: markerIcon, 
+  });
 
-    const infoWindowContent = document.createElement("div");
-    infoWindowContent.innerHTML = `
-        <div id="info-${title.replace(/\s/g, '')}" style="
-            max-width: 350px; 
-            text-align: center; 
-            padding: 12px; 
-            border-radius: 10px; 
-            background: white; 
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-            font-family: Arial, sans-serif;
-            word-wrap: break-word;
-            overflow: visible;
-            white-space: normal;
-        ">
-            <h3 style="margin: 5px 0; font-size: 18px; color: #333; font-weight: bold;">${title}</h3>
-            <img src="${imageUrl}" alt="${title}" style="width: 100%; border-radius: 8px; margin-top: 5px;">
-            <p style="font-size: 14px; color: #555; margin: 8px 0; line-height: 1.6; max-height: none;">${description}</p>
-            <a href="${mapsUrl}" target="_blank" style="display: inline-block; margin-top: 6px; padding: 10px 16px; background: linear-gradient(135deg, #007BFF, #0056b3); color: white; text-decoration: none; border-radius: 6px; font-size: 14px; transition: background 0.3s, transform 0.2s;">📍 Auf Google Maps</a>
-        </div>
-    `;
+  // Erstelle den Container und weise die CSS-Klasse zu
+  const infoWindowContent = document.createElement("div");
+  infoWindowContent.classList.add("info-window-content");
+  infoWindowContent.innerHTML = `
+    <h3 class="place-name">${title}</h3>
+    <img src="${imageUrl}" alt="${title}">
+    <p>${description}</p>
+    <a href="${mapsUrl}" target="_blank" class="map-link">📍 Auf Google Maps</a>
+  `;
 
-    const infoWindow = new google.maps.InfoWindow({
-        content: infoWindowContent,
-        maxWidth: 350, // Maximalbreite für das InfoWindow
-    });
+  const infoWindow = new google.maps.InfoWindow({
+    content: infoWindowContent,
+    maxWidth: 350,
+  });
 
-    let timeout;
+  let timeout;
 
-    // Funktion zum Schließen des InfoWindows mit Delay
-    function closeInfoWindow() {
-        timeout = setTimeout(() => {
-            if (activeInfoWindow === infoWindow) {
-                infoWindow.close();
-                activeInfoWindow = null;
-            }
-        }, 700); // Verzögerung für sanftes Schließen (0.7 Sek.)
+  function closeInfoWindow() {
+    timeout = setTimeout(() => {
+      if (activeInfoWindow === infoWindow) {
+        infoWindow.close();
+        activeInfoWindow = null;
+      }
+    }, 700);
+  }
+
+  marker.addListener("mouseover", () => {
+    if (activeInfoWindow) {
+      activeInfoWindow.close();
     }
+    infoWindow.open(map, marker);
+    activeInfoWindow = infoWindow;
+    if (timeout) clearTimeout(timeout);
+  });
 
-    // Mouseover auf Marker: InfoWindow öffnen
-    marker.addListener("mouseover", () => {
-        if (activeInfoWindow) {
-            activeInfoWindow.close();
-        }
-        infoWindow.open(map, marker);
-        activeInfoWindow = infoWindow;
+  marker.addListener("mouseout", closeInfoWindow);
 
-        if (timeout) clearTimeout(timeout); // Falls Timeout läuft, abbrechen
+  google.maps.event.addListener(infoWindow, "domready", () => {
+    infoWindowContent.addEventListener("mouseenter", () => {
+      if (timeout) clearTimeout(timeout);
     });
-
-    // Maus verlässt Marker → InfoWindow mit Delay schließen
-    marker.addListener("mouseout", closeInfoWindow);
-
-    // Sicherstellen, dass die InfoBox nicht zu früh schließt
-    google.maps.event.addListener(infoWindow, "domready", () => {
-        const infoDiv = document.getElementById(`info-${title.replace(/\s/g, '')}`);
-
-        infoDiv.addEventListener("mouseenter", () => {
-            if (timeout) clearTimeout(timeout); // Timeout abbrechen, wenn Maus drüber ist
-        });
-
-        infoDiv.addEventListener("mouseleave", closeInfoWindow);
-    });
+    infoWindowContent.addEventListener("mouseleave", closeInfoWindow);
+  });
 }
 
-// Initiiert die Karte mit Markierungen
+
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 52.5200, lng: 13.4050 }, // Berlin
+        center: { lat: 52.5200, lng: 13.4050 }, 
         zoom: 12,
-        gestureHandling: "greedy", // Ermöglicht Scroll-Zoom
-        zoomControl: true, // Zeigt die Zoom-Steuerung in der Ecke
+        gestureHandling: "greedy", 
+        zoomControl: true, 
         styles: [
             {
                 "elementType": "geometry",
                 "stylers": [
                     {
-                        "color": "#f1f1f1" // Heller Hintergrund für die Karte
+                        "color": "#f1f1f1" 
                     }
                 ]
             },
@@ -136,7 +116,7 @@ function initMap() {
                 "elementType": "labels.icon",
                 "stylers": [
                     {
-                        "visibility": "off" // Entfernt die POI-Icons (z.B. Restaurants, Cafés)
+                        "visibility": "off"
                     }
                 ]
             },
@@ -144,7 +124,7 @@ function initMap() {
                 "elementType": "labels.text.fill",
                 "stylers": [
                     {
-                        "color": "#2e2e2e" // Dunkler Text für Straßennamen
+                        "color": "#2e2e2e" 
                     }
                 ]
             },
@@ -152,7 +132,7 @@ function initMap() {
                 "elementType": "labels.text.stroke",
                 "stylers": [
                     {
-                        "color": "#ffffff" // Weißer Hintergrund für bessere Lesbarkeit der Straßennamen
+                        "color": "#ffffff" 
                     }
                 ]
             },
@@ -161,7 +141,7 @@ function initMap() {
                 "elementType": "geometry",
                 "stylers": [
                     {
-                        "color": "#A5D6A7" // Helle grüne Straßen (sanftes Grün)
+                        "color": "#A5D6A7"
                     }
                 ]
             },
@@ -170,7 +150,7 @@ function initMap() {
                 "elementType": "geometry",
                 "stylers": [
                     {
-                        "color": "#81C784" // Arterielle Straßen in einem stärkeren Grünton
+                        "color": "#81C784" 
                     }
                 ]
             },
@@ -179,7 +159,7 @@ function initMap() {
                 "elementType": "geometry",
                 "stylers": [
                     {
-                        "color": "#66BB6A" // Lokale Straßen in einem lebendigen, aber beruhigenden Grün
+                        "color": "#66BB6A"
                     }
                 ]
             },
@@ -188,7 +168,7 @@ function initMap() {
                 "elementType": "geometry",
                 "stylers": [
                     {
-                        "color": "#A5D6A7" // ÖPNV-Strecken in einem sanften Grünton
+                        "color": "#A5D6A7"
                     }
                 ]
             },
@@ -197,7 +177,7 @@ function initMap() {
                 "elementType": "geometry",
                 "stylers": [
                     {
-                        "color": "#81C784" // Wasserflächen in einem frischen Grün
+                        "color": "#81C784"
                     }
                 ]
             },
@@ -206,7 +186,7 @@ function initMap() {
                 "elementType": "geometry",
                 "stylers": [
                     {
-                        "color": "#C8E6C9" // Landschaften in einem sehr hellen Grün für einen natürlichen Look
+                        "color": "#C8E6C9" 
                     }
                 ]
             }
