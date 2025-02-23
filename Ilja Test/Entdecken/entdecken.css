@@ -342,22 +342,14 @@ body {
     position: relative;
 }
   
-.cards-section h2 {
-    font-size: 3rem; 
-    color: #2c3e50;
-    margin-bottom: 40px;
-}
-  
 .cards-container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    position: relative;
-    overflow: visible;
-    transition: opacity 0.3s ease;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-  
 .flip-card {
     width: 300px;
     height: 400px;
@@ -440,7 +432,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: rgba(0,0,0,0.5);
+    background: black;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -565,6 +557,45 @@ body {
     margin-bottom: 15px;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 1440px) {
+    .cards-section {
+      padding: 60px 15px 100px;
+      font-size: 0.9rem; /* Kleinere Schriftgröße */
+    }
+    
+    .cards-container {
+      gap: 15px;
+    }
+    
+    .flip-card {
+      width: 250px;
+      height: 330px;
+    }
+    
+    /* Falls aktive Karten auf kleineren Bildschirmen auch angepasst werden sollen */
+    .flip-card.active {
+      width: 1000px;
+      height: 550px;
+    }
+    
+    .card-caption h3 {
+      font-size: 2.5rem; /* angepasste Schriftgröße für den Titel */
+    }
+    
+    .city-info h3 {
+      font-size: 3.5rem;
+    }
+    
+    .description-box p {
+      font-size: 1rem;
+    }
+    
+    .visit-button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
 
 
 /* FOOTER */
