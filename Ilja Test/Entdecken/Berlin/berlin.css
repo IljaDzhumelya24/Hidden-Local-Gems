@@ -267,3 +267,82 @@ body {
     font-size: 14px;
   }
 }
+
+
+/* Header insgesamt */
+.berlin-header {
+  padding: 40px 20px;
+}
+
+/* Überschrift: linksbündig, dezent und mit Unterstreichung */
+.header-title {
+  width: 100%;
+  margin: 0 0 30px 0; /* Kein Auto-Margin mehr, damit der Container links beginnt */
+  text-align: left;
+  padding-left: 20px; /* Optional: sorgt für etwas Abstand vom Bildschirmrand */
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.header-title h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Kartenbereich: Container zentriert */
+.header-map-container {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start; /* Elemente beginnen ganz links */
+  align-items: stretch; /* Beide Elemente erhalten dieselbe Höhe */
+  width: 100%;
+  padding: 0 20px; /* Optional: Abstand vom Seitenrand */
+}
+
+.berlin-map {
+  width: 1300px;
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-legend {
+  flex-grow: 1; /* Nimmt den restlichen Platz ein */
+  height: 600px; /* Gleiche Höhe wie die Karte */
+  padding: 20px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.map-legend h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+}
+
+.map-legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.map-legend li {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 1rem;
+}
+
+.map-legend .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}

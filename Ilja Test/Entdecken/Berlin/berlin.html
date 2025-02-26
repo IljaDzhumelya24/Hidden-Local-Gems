@@ -47,22 +47,25 @@
 
 
     <!--Header-->
-    <header>
-        <h1>Berlin</h1>
-        <div class="maps-container">
-          <!-- Container für die Google Map -->
-          <div id="map"></div>
-          <!-- Legende -->
-          <div class="legend">
+    <header class="berlin-header">
+        <!-- Überschrift: Links ausgerichtet -->
+        <div class="header-title">
+          <h1>Berlin</h1>
+        </div>
+        
+        <!-- Kartenbereich: Zentral angeordnet -->
+        <div class="header-map-container">
+          <div id="berlin-map" class="berlin-map"></div>
+          <div class="map-legend">
             <h2>Legende</h2>
             <ul>
-              <li>Markierung 1</li>
-              <li>Markierung 2</li>
-              <li>Weitere Infos</li>
+              <li><span class="dot" style="background-color: #ff0000;"></span> Zentrum</li>
+              <li><span class="dot" style="background-color: #0000ff;"></span> Sehenswürdigkeiten</li>
+              <li><span class="dot" style="background-color: #00ff00;"></span> Parks</li>
             </ul>
           </div>
         </div>
-    </header>
+      </header>
 
 
 
@@ -72,5 +75,7 @@
 
 
 
-
+    <script src="berlin.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvBeC04AYSigHnBnCfavbD4IGCeplyiqQ&callback=initMap" defer></script>
 </body>
+</html>
