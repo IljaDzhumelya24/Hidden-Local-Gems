@@ -359,3 +359,35 @@ body {
 .gm-style, .gm-style-iw {
   z-index: 0 !important;
 }
+
+.info-window-content {
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
+}
+
+.info-window-content img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.place-name {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #27ae60;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.map-link:hover {
+  background-color: #2ecc71;
+}
